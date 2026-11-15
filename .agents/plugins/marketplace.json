@@ -1,0 +1,16 @@
+{
+  "name": "kyte-codex",
+  "interface": {
+    "displayName": "kyte"
+  },
+  "plugins": [
+    {
+      "name": "kyte",
+      "source": {
+        "source": "local",
+        "path": "./plugins/kyte"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
