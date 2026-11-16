@@ -73,8 +73,13 @@ args = ["mcp", "--db", "C:\\Users\\<you>\\.kyte\\codex"]
 
 `sh check.sh` walks the whole path in a throwaway `CODEX_HOME` and a throwaway `HOME`, so neither
 your Codex nor your workspace is touched: it adds the marketplace, installs the plugin, looks at
-the server Codex registered, and talks to that server. It needs `codex`, `node` and `kyte` on the
-machine. `node --test tests/*.test.mjs` checks the manifests alone and runs on every pull request.
+the server Codex registered, talks to that server, and finally reads what Codex puts in front of
+the model. That last step matters on its own — a plugin can install cleanly, serve every tool, and
+still never show the model the skill. It asks Codex by standing a throwaway endpoint in front of
+it and reading the request, so no account is used and no tokens are spent.
+
+It needs `codex`, `node` and `kyte` on the machine. `node --test tests/*.test.mjs` checks the
+manifests alone and runs on every pull request.
 
 ## Support
 
