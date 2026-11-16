@@ -60,5 +60,11 @@ grep -q 'kyte_status' "$work/probe.txt" ||
   fail "without a workspace the server should offer kyte_status and nothing else
 $(cat "$work/probe.txt")"
 
+echo "5. the model is offered the skill"
+# Installed is not offered: the server can be perfect while the skill never reaches the model.
+# This asks Codex itself — it answers into a throwaway endpoint, so no account and no tokens.
+node "$repo/scripts/skill-offered.mjs" kyte:kyte ||
+  fail "Codex does not put the kyte skill in front of the model"
+
 echo
-echo "All four passed."
+echo "All five passed."
